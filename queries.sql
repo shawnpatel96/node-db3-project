@@ -22,8 +22,8 @@ ORDER BY product.productname;
 SELECT 
 customer.companyname as Company,
 [order].id as Order_ID,
-employee.firstname as Employee_First_Name, 
-employee.lastname as Employee_Last_Name
+employee.firstname as First_Name, 
+employee.lastname as Last_Name
 
 FROM [order]
 JOIN customer ON [order].customerid = customer.id

@@ -35,8 +35,23 @@ function remove(id){
 }
 function findSteps(id){
     return db('steps')
-        
+    .join('schemes', 'steps.scheme_id',"=", 'schemes.id')
+    .select('schemes.scheme_name as scheme', 'steps.instructions as instructions')
+    .where({scheme_id: id})
 }
 function addStep(step, scheme_id){
   
 }
+ /*
+router.get("/", (req, res) => {
+  
+    // select posts.*, users.username as author
+    // from posts as p
+    // join users as u on posts.user_id = users.id;
+ 
+ db.select("posts.contents as quote", "users.username as author")
+ .from("posts")
+ .join("users", "posts.user_id", "=", "users.id")
+
+
+*/
